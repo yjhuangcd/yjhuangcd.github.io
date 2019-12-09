@@ -99,7 +99,7 @@ plugins:
 # Jekyll-Scholar
 scholar:
 
-  last_name: Dai
+  last_name: Huang
 
   style: apa
   locale: en
