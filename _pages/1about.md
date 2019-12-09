@@ -1,16 +1,19 @@
 ---
 layout: about
 permalink: /
-title: <strong>Sihui</strong>  Dai
+title: <strong>Yujia</strong>  Huang
 description: California Institute of Technology
 
 profile:
   align: right
   image: prof_pic.jpg
-  address: sdai@caltech.edu
+  address: yjhuang@caltech.edu
   
 news: false
 social: true
 ---
 
-I am a fourth year undergraduate student at Caltech in Computer Science and Information and Data Sciences.  I am a member of [Dr. Anima Anandkumar's](http://tensorlab.cms.caltech.edu/users/anima/) group. My research interests are centered around solving problems in machine learning which arise from training with limited data including generalization, fairness, robustness, domain adaptation, and few-shot learning.
+I am a PhD student at Caltech supervised by [Prof. Anima Anandkumar](http://tensorlab.cms.caltech.edu/users/anima/). 
+My research interests lie on the intersection of deep learning and neuroscience. I hope to design "less artificial" artificial intelligence. I am currently working on neuro-inspired generative models and probabilistic inference towards the goal.
+Previously, I received my bachelor degree in Electrical Engineering from Zhejiang University in 2017 with a focus on optics.  I have worked in [Biophotonics Lab](http://www.biophot.caltech.edu/publications/index.html) on imaging inside scattering media before joining Prof. Anandkumar's lab.
+

@@ -1,9 +1,9 @@
 # -----------------------------------------------------------------------------
 # Site settings
 # -----------------------------------------------------------------------------
-name: Sihui Dai
-email: sdai@caltech.edu
-description: Undergraduate student @ Caltech # this means to ignore newlines until "url:"
+name: Yujia Huang
+email: yjhuang@caltech.edu
+description: PhD student @ Caltech # this means to ignore newlines until "url:"
 footer_text: >
   Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -23,10 +23,10 @@ og_image: # The site-wide (default for all links) Open Graph preview image
 # -----------------------------------------------------------------------------
 # Social integration
 # -----------------------------------------------------------------------------
-github_username: dash29 # your GitHub user name
-twitter_username: # your Twitter handle
-linkedin_username: # your LinkedIn user name
-scholar_userid: e0qMqHUAAAAJ # your Google Scholar ID
+github_username: yjhuangcd # your GitHub user name
+twitter_username: YujiaHuangC# your Twitter handle
+linkedin_username: yujia-huang-4aa689122  # your LinkedIn user name
+scholar_userid: # your Google Scholar ID
 orcid_id: # your ORCID ID
 medium_username: # your Medium username
 quora_username: # your Quora username
@@ -36,7 +36,7 @@ blogger_url: # your blogger URL
 
 contact_note: >
 
-google_analytics: UA-XXXXXXXXX # out your google-analytics code
+google_analytics: # out your google-analytics code
 
 # -----------------------------------------------------------------------------
 # Blog
