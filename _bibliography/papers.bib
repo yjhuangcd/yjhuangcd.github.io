@@ -1,10 +1,38 @@
 
-@article{huang2019brain,
-  title={Brain-inspired Robust Vision using Convolutional Neural Networks with Feedback},
-  author={Huang, Yujia and Dai, Sihui and Nguyen, Tan and Bao, Pinglei and Tsao, Doris and Baraniuk, Richard G and Anandkumar, Anima},
-  journal = {Conference on Neural Information Processing Systems NeuroAI Workshop},
-  year={2019},
-  abstract="Humans have the remarkable ability to correctly classify images despite possible degradation. Many studies have suggested that this hallmark of human vision results from the interaction between feedforward signals from bottom-up pathways of the visual cortex and feedback signals provided by top-down pathways. Motivated by such interaction, we propose a new neuro-inspired model, namely Convolutional Neural Networks with Feedback (CNN-F). CNN-F extends CNN with a feedback generative network, combining bottom-up and top-down inference to perform approximate loopy belief propagation.  We show that CNN-F's iterative inference allows for disentanglement of latent variables across layers. We validate the advantages of CNN-F over the baseline CNN. Our experimental results suggest that the CNN-F is more robust to image degradation such as pixel noise, occlusion, and blur.  Furthermore, we show that the CNN-F is capable of restoring original images from the degraded ones with high reconstruction accuracy while introducing negligible artifacts."
+@article{huang2020brain,
+  title={Neural Networks with Recurrent Generative Feedback},
+  author={Huang, Yujia and Gornet, James and Dai, Sihui and Yu, Zhiding and Nguyen, Tan and Tsao, Doris Y. and Anandkumar, Anima},
+  journal = {ICML UDL Workshop},
+  year={2020},
+  html={http://www.gatsby.ucl.ac.uk/~balaji/udl2020/accepted-papers/UDL2020-paper-119.pdf},
+  pdf={CNN_F-UDL.pdf},
+  abstract="Neural networks are vulnerable to input perturbations such as additive noise and adversarial attacks. In contrast, human perception is much more robust to such perturbations. The Bayesian brain hypothesis states that human brains use an internal generative model to update the posterior beliefs of the sensory input. This mechanism can be interpreted as a form of self-consistency between the maximum a posteriori (MAP) estimation of the internal generative model and the external environmental. Inspired by this framework, we enforce consistency in neural networks by incorporating generative recurrent feedback. We implement this framework on convolutional neural networks (CNNs). The proposed framework, Convolutional Neural Networks with Feedback (CNN-F), introduces a generative feedback with latent variables into existing CNN architectures, making consistent predictions via alternating MAP inference under a Bayesian framework. CNN-F shows considerably better adversarial robustness over regular feedforward CNNs on standard benchmarks. In addition, With higher V4 and IT neural predictivity, CNN-F produces object representations closer to primate vision than conventional CNNs."
+}
+
+@article{huang2020uot,
+author = {Huang, Yujia and Cua, Michelle and Brake, Joshua and Liu, Yan and Yang, Changhuei},
+title = {{Investigating ultrasound–light interaction in scattering media}},
+journal = {Journal of Biomedical Optics},
+publisher = {SPIE},
+year = {2020},
+html = {https://doi.org/10.1117/1.JBO.25.2.025002},
+pdf = {117-JBO-YHuang-26Feb2020.pdf},
+abstract = "Significance: Ultrasound-assisted optical imaging techniques, such as ultrasound-modulated optical tomography, allow for imaging deep inside scattering media. In these modalities, a frac- tion of the photons passing through the ultrasound beam is modulated. The efficiency by which the photons are converted is typically referred to as the ultrasound modulation’s “tagging efficiency.” Interestingly, this efficiency has been defined in varied and discrepant fashion throughout the scientific literature.
+Aim: The aim of this study is the ultrasound tagging efficiency in a manner consistent with its definition and experimentally verify the contributive (or noncontributive) relationship between the mechanisms involved in the ultrasound optical modulation process.
+Approach: We adopt a general description of the tagging efficiency as the fraction of photons traversing an ultrasound beam that is frequency shifted (inclusion of all frequency-shifted com- ponents). We then systematically studied the impact of ultrasound pressure and frequency on the tagging efficiency through a balanced detection measurement system that measured the power of each order of the ultrasound tagged light, as well as the power of the unmodulated light component.
+Results: Through our experiments, we showed that the tagging efficiency can reach 70% in a scattering phantom with a scattering anisotropy of 0.9 and a scattering coefficient of 4 mm−1 for a 1-MHz ultrasound with a relatively low (and biomedically acceptable) peak pressure of 0.47 MPa. Furthermore, we experimentally confirmed that the two ultrasound-induced light modulation mechanisms, particle displacement and refractive index change, act in opposition to each other.
+Conclusion: Tagging efficiency was quantified via simulation and experiments. These findings reveal avenues of investigation that may help improve ultrasound-assisted optical imaging techniques."
+}
+
+
+@article{ruan2020scatter,
+  title={Fluorescence imaging through dynamic scattering media with speckle-encoded ultrasound-modulated light correlation},
+  author={Ruan, Haowen and Liu, Yan and Xu, Jian and Huang, Yujia and Yang, Changhuei},
+  journal = {Nature Photonics},
+  publisher={Nature Publishing Group},
+  year={2020},
+  html={https://www.nature.com/articles/s41566-020-0630-0},
+  abstract="Fluorescence imaging is indispensable to biomedical research, and yet it remains challenging to image through dynamic scattering samples. Techniques that combine ultrasound and light as exemplified by ultrasound-assisted wavefront shaping have enabled fluorescence imaging through scattering media. However, the translation of these techniques into in vivo applications has been hindered by the lack of high-speed solutions to counter the fast speckle decorrelation of dynamic tissue. Here, we report an ultrasound-enabled optical imaging method that instead leverages the dynamic nature to perform imaging. The method utilizes the correlation between the dynamic speckle-encoded fluorescence and ultrasound-modulated light signal that originate from the same location within a sample. We image fluorescent targets with an improved resolution of ≤75 µm (versus a resolution of 1.3 mm with direct optical imaging) within a scattering medium with 17 ms decorrelation time. This new imaging modality paves the way for fluorescence imaging in highly scattering tissue in vivo."
 }
 
 @article{zhang2019accurate,
@@ -15,7 +43,10 @@
   number={3},
   pages={e201800335},
   year={2019},
-  publisher={Wiley Online Library}
+  html={https://onlinelibrary.wiley.com/doi/full/10.1002/jbio.201800335},
+  pdf={jbio.201800335.pdf},
+  publisher={Wiley Online Library},
+  abstract="Holographic microscopy presents challenges for color reproduction due to the usage of narrow‐band illumination sources, which especially impacts the imaging of stained pathology slides for clinical diagnoses. Here, an accurate color holographic microscopy framework using absorbance spectrum estimation is presented. This method uses multispectral holographic images acquired and reconstructed at a small number (e.g., three to six) of wavelengths, estimates the absorbance spectrum of the sample, and projects it onto a color tristimulus. Using this method, the wavelength selection is optimized to holographically image 25 pathology slide samples with different tissue and stain combinations to significantly reduce color errors in the final reconstructed images. The results can be used as a practical guide for various imaging applications and, in particular, to correct color distortions in holographic imaging of pathology samples spanning different dyes and tissue types."
 }
 
 @article{chen2018multi,
@@ -26,7 +57,10 @@
   number={1},
   pages={4818},
   year={2018},
-  publisher={Nature Publishing Group}
+  html={https://www.nature.com/articles/s41467-018-07244-4},
+  pdf={NC-2018-Chen.pdf},
+  publisher={Nature Publishing Group},
+  abstract="Imaging and tracking of near-surface three-dimensional volumetric nanoscale dynamic processes of live cells remains a challenging problem. In this paper, we propose a multi-color live-cell near-surface-volume super-resolution microscopy method that combines total internal reflection fluorescence structured illumination microscopy with multi-angle evanescent light illumination. We demonstrate that our approach of multi-angle interference microscopy is perfectly adapted to studying subcellular dynamics of mitochondria and microtubule architectures during cell migration."
 }
 
 @article{huang2017laser,
@@ -36,7 +70,9 @@
   volume={396},
   pages={261--266},
   year={2017},
-  publisher={Elsevier}
+  html={https://www.sciencedirect.com/science/article/abs/pii/S0030401817301839},
+  publisher={Elsevier},
+  abstract="Wide-field saturated structured illumination microscopy has not been widely used due to the requirement of high laser power. We propose a novel method called laser scanning saturated structured illumination microscopy (LS-SSIM), which introduces high order of harmonics frequency and greatly reduces the required laser power for SSIM imaging. To accomplish that, an excitation PSF with two peaks is generated and scanned along different directions on the sample. Raw images are recorded cumulatively by a CCD detector and then reconstructed to form a high-resolution image with extended optical transfer function (OTF). Our theoretical analysis and simulation results show that LS-SSIM method reaches a resolution of 0.16 λ, equivalent to 2.7-fold resolution than conventional wide-field microscopy. In addition, LS-SSIM greatly improves the optical sectioning capability of conventional wide-field illumination system by diminishing our-of-focus light. Furthermore, this modality has the advantage of implementation in multi-photon microscopy with point scanning excitation to image samples in greater depths."
 }
 
 @book{thomas2017microscopy,
@@ -44,5 +80,7 @@
   author={Fang, Yue and Huang, Yujia and Liu, Shaocong and Liu, Xu},
   volume={1},
   year={2017},
-  publisher={Elsevier}
+  html={https://www.sciencedirect.com/book/9780323461412/microscopy-methods-in-nanomaterials-characterization},
+  publisher={Elsevier},
+  abstract="The resolution of conventional optical microscopy is constrained to about 200 and 500 nm in the lateral and axial plane, respectively, because diffraction sets a physical limit for the theoretically achievable resolution. However, this barrier has been circumvented by microscopists with great endeavors in recent years, starting the era of superresolution in light microscopy. These superresolution techniques utilize different principles, such as point spread function engineering, frequency shift, single-molecule localization, or correlation analysis. According to their principles, we divide them into four categories. In this chapter, the major superresolution optical techniques in each category are introduced briefly, together with their pros and cons."
 }
