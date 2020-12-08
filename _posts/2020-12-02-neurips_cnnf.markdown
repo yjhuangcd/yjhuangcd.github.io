@@ -32,7 +32,7 @@ Mathematically, we use a generative model to describe the joint distribution of 
 If the MAP estimates of each one of them are consistent with the other two, we call a label, a set of latent variables and image features to be self-consistent.
 
 <p align="center">
-  <img width="400" height="312" src="/assets/img/intuition.pdf">
+  <img width="400" height="312" src="/assets/img/blog_cnnf/intuition.png">
 </p>
 
 Consider the process of classifying a blurry cat. The blurry input is first processed by feedforward pathways. A label of "cat" is assigned by the internal model.
@@ -44,7 +44,7 @@ As we all know, to learn a classifier, we can directly learn the mapping from x 
 For example, logistic regression and Gaussian Naïve classifier is a discriminative and generative pair of classifiers that have the same parameterized form.
 
 <p align="center">
-  <img width="496" height="249" src="/assets/img/gen_classifier.pdf">
+  <img width="496" height="249" src="/assets/img/blog_cnnf/gen_classifier.png">
 </p>
 
 Since CNNs have achieved great success in image classification, we hope to have a
@@ -67,7 +67,7 @@ Conditioning on y, we can compute the joint distribution of latent variables fro
 With the joint distribution, we can compute p(y\|x,z) to get our generative classifier corresponding to CNNs.
 
 <p align="center">
-  <img width="581" height="305" src="/assets/img/dgm.pdf">
+  <img width="581" height="305" src="/assets/img/blog_cnnf/dgm.png">
 </p>
 
 ## Iterative inference and online updates in CNN-F
@@ -87,14 +87,14 @@ With AdaReLU and AdaPool defined, we prove that p(y\|x,z) from the DGM has the s
 
 This iterative inference procedure is shown as follows. We repeat this process until it converges to a solution empirically.
 
-![Iterative inference](/assets/img/inference.gif){: width="700px"}
+![Iterative inference](/assets/img/blog_cnnf/inference.gif){: width="700px"}
 
 <!-- With the DGM model, we show that MAP estimates can be computed via forward and backward passes in a CNN architecture.
 The MAP estimate of y can be carried out by a CNN. And the MAP estimate of image features h is the generated image at the bottom level of the feedback pathway. 
 The MAP estimate z is determined by the nonlinearity operators AdaReLU and AdaPool.  -->
 
 The forward and backward propagation in a CNN architecture is demonstrated here.
-![CNNF arch](/assets/img/arch.gif){: width="700px"}
+![CNNF arch](/assets/img/blog_cnnf/arch.gif){: width="700px"}
 
 
 ## Results
@@ -105,12 +105,12 @@ As a sanity check, we expect that CNN-F reconstructs the perturbed inputs to the
 In the figure below, (a) shows that the CNN-F improves adversarial robustness of a CNN against Projected Gradient Descent (PGD-40) attack on Fashion-MNIST without access to adversarial images during training. 
 (b) shows that the predictions are corrected over iterations during testing time for a CNN-F trained with 5 iterations. Furthermore, we see larger improvements for higher perturbation. This indicates that recurrent feedback is crucial for recognizing challenging images.
 
-![Clean training adv acc](/assets/img/cleanadv.pdf){: width="700px"}
+![Clean training adv acc](/assets/img/blog_cnnf/cleanadv.png){: width="700px"}
 
 Furthermore, we find that CNN-F can repair distorted images over iterations. 
 This means that the generative feedback is projecting distorted images to a clean domain where it is easier to reach self-consistent predictions.
 
-![denoise](/assets/img/denoise.gif){: width="700px"}
+![denoise](/assets/img/blog_cnnf/denoise.gif){: width="700px"}
 
 #### Adversarial training
 Adversarial training is a well established method to improve adversarial robustness of a
@@ -120,7 +120,7 @@ In adversarial training, we want to provide a reference with clean feature for a
 To guide the network achieving this goal, we use cross-entropy loss on both clean images and adversarial images and add reconstruction loss between generated features of adversarial samples from iterative feedback and the features of clean images in the first forward pass.
 
 <p align="center">
-  <img width="432" height="324" src="/assets/img/advloss.pdf">
+  <img width="345" height="259" src="/assets/img/blog_cnnf/advloss.png">
 </p>
 
 We train a CNN-F on CIFAR-10. We use Wide Resnet (WRN-40-2) as the architecture. To prevent gradient obfuscation when evaluating adversarial robustness, we use SPSA and transfer attack in addition to PGD-7 attack. We can also choose which iteration to attack in the CNN-F, first means attack the first iteration and e2e means end-to-end attack.
