@@ -4,7 +4,7 @@ title: Neural Networks with Recurrent Generative Feedback
 date: 2020-12-02
 description: Introduce our CNN-F paper (NeurIPS 2020).
 ---
->This blog takes about 6 minutes to read. 
+>This blog takes about 10 minutes to read. 
 >It introduces the CNN-F model that introduces recurrent generative feedback to CNNs. 
 >The recurrent feedback reaches for a self-consistent prediction and improves adversarial robustness of its feedforward counterpart. 
 >Also check out the [paper](https://arxiv.org/abs/2007.09200) and 
