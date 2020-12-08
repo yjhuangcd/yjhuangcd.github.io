@@ -41,8 +41,8 @@ google_analytics: # out your google-analytics code
 # -----------------------------------------------------------------------------
 # Blog
 # -----------------------------------------------------------------------------
-blog_name: al-folio
-blog_description: a simple whitespace theme for academics
+blog_name: Making artificial intelligence less artificial
+blog_description: Blog for my research projects
 
 # Pagination
 paginate: 4
