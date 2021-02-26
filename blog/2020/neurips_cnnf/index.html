@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Yujia Huang | Neural Networks with Recurrent Generative Feedback</title>
+  <meta name="description" content="PhD student @ Caltech">
+
+  
+
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="/blog/2020/neurips_cnnf/">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    
+    <span class="site-title">
+        
+        <strong>Yujia</strong> Huang
+    </span>
+    
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+      <div class="trigger">
+        <!-- About -->
+        <a class="page-link" href="/">about</a>
+
+        <!-- Blog -->
+        <a class="page-link" href="/blog/">blog</a>
+
+        <!-- Pages -->
+        
+          
+        
+          
+            <a class="page-link" href="/publications/">publications</a>
+          
+        
+          
+            <a class="page-link" href="/presentations/">presentations</a>
+          
+        
+          
+            <a class="page-link" href="/teaching/">teaching</a>
+          
+        
+          
+        
+          
+        
+          
+        
+
+        <!-- CV link -->
+        <a class="page-link" href="/assets/pdf/CV.pdf">CV</a>
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Neural Networks with Recurrent Generative Feedback</h1>
+    <p class="post-meta">December 2, 2020</p>
+  </header>
+
+  <article class="post-content">
+    <blockquote>
+  <p>This blog takes about 10 minutes to read. 
+It introduces the CNN-F model that introduces recurrent generative feedback to CNNs. 
+The recurrent feedback reaches for a self-consistent prediction and improves adversarial robustness of its feedforward counterpart. 
+Also check out the <a href="https://arxiv.org/abs/2007.09200">paper</a> and 
+<a href="https://github.com/yjhuangcd/CNNF">code</a>.</p>
+</blockquote>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Recent neuroscience findings suggest that recurrent feedback in the human brain is crucial for robust perception. 
+Evidences show that adversarial examples can fool time-limited humans, and it takes longer for primates to perform core object recognition for challenging images than control images [1, 2].</p>
+
+<p>Besides these empirical findings, computational neuroscience models aim to provide a principled explanation for recurrent feedback. 
+According to the predictive coding theory, the feedback connections from a higher level of visual cortical area carry predictions of lower-level neural activities.</p>
+
+<p>In this work, we extend the principle of predictive coding to explicitly incorporate Bayesian inference in neural networks via generative feedback connections. 
+We define a form of self-consistency between the maximum a posteriori (MAP) estimation of the internal generative model and the external environment and enforce consistency in neural networks by incorporating recurrent generative feedback.</p>
+
+<p>The proposed framework, termed Convolutional Neural Networks with Feedback (CNN-F), introduces generative feedback with latent variables into existing CNN architectures, making consistent predictions via alternating MAP inference. 
+CNN-F shows considerably better adversarial robustness over regular feedforward CNNs on standard benchmarks.</p>
+
+<h2 id="self-consistency">Self-consistency</h2>
+<p>We propose the self-consistency formulation for robust perception. 
+Intuitively, self-consistency says that given any two elements of {label, image and auxiliary information}, we should be able to infer the other one. 
+Mathematically, we use a generative model to describe the joint distribution of labels, latent variables and input image features. 
+If the MAP estimates of each one of them are consistent with the other two, we call a label, a set of latent variables and image features to be self-consistent.</p>
+
+<p align="center">
+  <img width="400" height="312" src="/assets/img/blog_cnnf/intuition.png" />
+</p>
+
+<p>Consider the process of classifying a blurry cat. The blurry input is first processed by feedforward pathways. A label of “cat” is assigned by the internal model.
+After several cycles of feedforward and feedback, this leads to generation of a sharp image of a cat through the generative pathway.
+The reason is that the sharp image is the one that is maximally consistent with the input image and the internal generative model.</p>
+
+<h2 id="generative-classifier">Generative Classifier</h2>
+<p>As we all know, to learn a classifier, we can directly learn the mapping from x to y, or p(y|x) from the input data. But there is also another way. That is, we learn the joint distribution of x and y, and compute p(y|x) using Bayes rule. p(y|x) computed this way is called a generative classifier.
+For example, logistic regression and Gaussian Naïve classifier is a discriminative and generative pair of classifiers that have the same parameterized form.</p>
+
+<p align="center">
+  <img width="496" height="249" src="/assets/img/blog_cnnf/gen_classifier.png" />
+</p>
+
+<p>Since CNNs have achieved great success in image classification, we hope to have a
+generative model whose inference has the same architecture as CNN. 
+It turns out that a recently proposed model called deconvolutional generative model (DGM) [3] satisfies this requirement.</p>
+
+<p>In a DGM, an image is generated hierarchically from coarse to fine details.
+First, y is sampled from the label distribution. And features at the lower level, denoted by g here, is generated by deconvolutional operations.</p>
+
+<!-- Then latent variables are sampled from a Bernoulli distribution parameterized by bias parameter b and generated feature map g. 
+Notice that the latent variables are discrete and have the same dimension as g.  -->
+<p>For every entry g(i) in feature g, we also create a corresponding latent variable z(i). The latent variable is a switch, that is probabilistically set to 0 to 1 depending on the value of b<script type="math/tex">\cdot</script>g(i), where b is a bias parameter.
+Including this probabilistic switch is important because it allows the image generation process to be non-deterministic through its dependence on z.</p>
+
+<p>The same generation process is repeated layer by layer. At the bottom level, we assume that image x has a Gaussian distribution centered at the generated image at the bottom layer.</p>
+
+<p>Now we can compute the joint distribution p(x,y,z) by p(x|y,z)p(z|y)p(y). For a dataset with balanced label distribution, p(y) is a uniform distribution. 
+Conditioning on y, we can compute the joint distribution of latent variables from the paramterized Bernoulli distributions. Finally, p(x|y,z) follows a Gaussian distribution centered at the generated image at the bottom layer g(0).</p>
+
+<p>With the joint distribution, we can compute p(y|x,z) to get our generative classifier corresponding to CNNs.</p>
+
+<p align="center">
+  <img width="581" height="305" src="/assets/img/blog_cnnf/dgm.png" />
+</p>
+
+<h2 id="iterative-inference-and-online-updates-in-cnn-f">Iterative inference and online updates in CNN-F</h2>
+<p>We need to compute the MAP inference of y, h, and z to enforce self-consistency. This is equivalent to find a local maximum of joint likelihood p(x,y,h) starting with an input x.</p>
+
+<p>To achieve this, we iteratively fix two variables and find the optimal value for the third variable to increase the joint likelihood.</p>
+
+<p>Starting from the input x, we encode x to feature space to get h. 
+We feed h to the first forward pass that is the same as conventional CNNs. We set <script type="math/tex">\hat{y}</script> to be the prediction from the CNN and we set <script type="math/tex">\hat{z}</script> to be 1 if the value of the corresponding entry passes through ReLU.</p>
+
+<p>Then we generate image feature from <script type="math/tex">\hat{y}</script> and <script type="math/tex">\hat{z}</script> to get <script type="math/tex">\hat{h}</script>, which is an updated version of input features. The newly generated image feature is fed back to the forward pass again for the next iteration.</p>
+
+<p>We need to modify the ReLU and Pooling operators to AdaReLU and AdaPool to find <script type="math/tex">\hat{z}</script> that maximize the joint likelihood given h and y. 
+Since <script type="math/tex">\hat{z}</script> depends on both h and y, AdaReLU and AdaPool take on not only the feedforward features but also the feedback features. AdaReLU passes through the value and set 1 to <script type="math/tex">\hat{z}</script> at the corresponding entry if the signs of feedforward features and feedback features match. AdaPool is defined in a similar way.</p>
+
+<p>With AdaReLU and AdaPool defined, we prove that p(y|x,z) from the DGM has the same parametric form as a CNN with these modified nonlinear operators.</p>
+
+<p>This iterative inference procedure is shown as follows. We repeat this process until it converges to a solution empirically.</p>
+
+<p><img src="/assets/img/blog_cnnf/inference.gif" alt="Iterative inference" width="700px" /></p>
+
+<!-- With the DGM model, we show that MAP estimates can be computed via forward and backward passes in a CNN architecture.
+The MAP estimate of y can be carried out by a CNN. And the MAP estimate of image features h is the generated image at the bottom level of the feedback pathway. 
+The MAP estimate z is determined by the nonlinearity operators AdaReLU and AdaPool.  -->
+
+<p>The forward and backward propagation in a CNN architecture is demonstrated here.
+<img src="/assets/img/blog_cnnf/arch.gif" alt="CNNF arch" width="700px" /></p>
+
+<h2 id="results">Results</h2>
+
+<h4 id="generative-feedback-promotes-robustness">Generative feedback promotes robustness</h4>
+<p>As a sanity check, we expect that CNN-F reconstructs the perturbed inputs to their clean version and makes self-consistent predictions. To this end, we verify the hypothesis by evaluating adversarial robustness of CNN-F and visualizing the restored images over iterations.</p>
+
+<p>In the figure below, (a) shows that the CNN-F improves adversarial robustness of a CNN against Projected Gradient Descent (PGD-40) attack on Fashion-MNIST without access to adversarial images during training. 
+(b) shows that the predictions are corrected over iterations during testing time for a CNN-F trained with 5 iterations. Furthermore, we see larger improvements for higher perturbation. This indicates that recurrent feedback is crucial for recognizing challenging images.</p>
+
+<p><img src="/assets/img/blog_cnnf/cleanadv.png" alt="Clean training adv acc" width="700px" /></p>
+
+<p>Furthermore, we find that CNN-F can repair distorted images over iterations. 
+This means that the generative feedback is projecting distorted images to a clean domain where it is easier to reach self-consistent predictions.</p>
+
+<p><img src="/assets/img/blog_cnnf/denoise.gif" alt="denoise" width="700px" /></p>
+
+<h4 id="adversarial-training">Adversarial training</h4>
+<p>Adversarial training is a well established method to improve adversarial robustness of a
+neural network. We show that CNN-F can be combined with adversarial training to further improve the adversarial robustness. This figure illustrates the loss design we use for CNN-F adversarial training. <script type="math/tex">\epsilon</script> stands for the perturbation maginitude of adversarial attack under L-inf norm.</p>
+
+<p>In adversarial training, we want to provide a reference with clean feature for adversarial images to be denoised to over iteratoins. 
+To guide the network achieving this goal, we use cross-entropy loss on both clean images and adversarial images and add reconstruction loss between generated features of adversarial samples from iterative feedback and the features of clean images in the first forward pass.</p>
+
+<p align="center">
+  <img width="345" height="259" src="/assets/img/blog_cnnf/advloss.png" />
+</p>
+
+<p>We train a CNN-F on CIFAR-10. We use Wide Resnet (WRN-40-2) as the architecture. To prevent gradient obfuscation when evaluating adversarial robustness, we use SPSA and transfer attack in addition to PGD-7 attack. We can also choose which iteration to attack in the CNN-F, first means attack the first iteration and e2e means end-to-end attack.
+The table below shows the adversarial accuracy of CNN-F with <script type="math/tex">\epsilon=8/255</script>. We report two evaluation methods for CNN-F: taking the logits from the last iteration (last), or taking the average of logits from all the iterations (avg). We also report the lowest accuracy among all the attack methods with bold font to highlight the weak spot of each model.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: left">clean</th>
+      <th style="text-align: left">PGD (first)</th>
+      <th style="text-align: left">PGD (e2e)</th>
+      <th style="text-align: left">SPSA (first)</th>
+      <th style="text-align: left">SPSA (e2e)</th>
+      <th style="text-align: left">Transfer</th>
+      <th style="text-align: left">min</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CNN</td>
+      <td style="text-align: left">79.09</td>
+      <td style="text-align: left">42.31</td>
+      <td style="text-align: left">42.31</td>
+      <td style="text-align: left">66.61</td>
+      <td style="text-align: left">66.61</td>
+      <td style="text-align: left">——</td>
+      <td style="text-align: left">42.31</td>
+    </tr>
+    <tr>
+      <td>CNN-F (last)</td>
+      <td style="text-align: left">78.68</td>
+      <td style="text-align: left"><strong>48.90</strong></td>
+      <td style="text-align: left">49.35</td>
+      <td style="text-align: left">68.75</td>
+      <td style="text-align: left">51.46</td>
+      <td style="text-align: left">66.19</td>
+      <td style="text-align: left"><strong>48.90</strong></td>
+    </tr>
+    <tr>
+      <td>CNN-F (avg)</td>
+      <td style="text-align: left"><strong>80.27</strong></td>
+      <td style="text-align: left">48.72</td>
+      <td style="text-align: left"><strong>55.02</strong></td>
+      <td style="text-align: left"><strong>71.56</strong></td>
+      <td style="text-align: left"><strong>58.83</strong></td>
+      <td style="text-align: left"><strong>67.09</strong></td>
+      <td style="text-align: left">48.72</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>There are many evidences showing the existence of feedback connections in the brain. But the roles of these feedback connections remains a mystery. The possible answers might be generating lower level representations, directing attention, etc.</p>
+
+<p>Inspired by the predictive coding theory, we propose a model with recurrent generative feedback. We perform approximate Bayesian inference to incorporate both feedforward and feedback signals in visual perception tasks. 
+In the experiments, we demonstrate that the proposed feedback mechanism can considerably improve the adversarial robustness compared to conventional feedforward CNNs. 
+Our study shows that the generative feedback in CNN-F presents a biologically inspired architectural design that encodes inductive biases to benefit network robustness.</p>
+
+<h4 id="references">References</h4>
+<ol>
+  <li>Gamaleldin F. Elsayed et al., Adversarial Examples that Fool both Computer Vision and Time-Limited Humans, NeurIPS, 2018</li>
+  <li>Kohitij Kar et al., Evidence that recurrent circuits are critical to the ventral stream’s execution of core object recognition behavior, Nature Neuroscience, 2019</li>
+  <li>Tan Nguyen, et al., A bayesian perspective of convolutional neural networks through a deconvolutional generative model. arXiv:1811.02657, 2018.</li>
+</ol>
+
+  </article>
+
+  
+
+</div>
+
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    &copy; Copyright 2021 Yujia Huang.
+    Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+
+    
+  </div>
+
+</footer>
+
+
+    <!-- Load jQuery -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+
+<!-- Load KaTeX -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"></script>
+<script src="/assets/js/katex.js"></script>
+
+
+
+
+<!-- Include custom icon fonts -->
+<link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/assets/css/academicons.min.css">
+
+
+
+
+  </body>
+
+</html>
