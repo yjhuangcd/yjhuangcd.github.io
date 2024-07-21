@@ -706,6 +706,11 @@ footer.sticky-bottom {
           border: 1px solid var(--global-theme-color);
         }
       }
+      
+      .honor {
+        color: var(--global-theme-color);      
+        font-weight: bolder;
+      }            
 
       .title {
         font-weight: bolder;

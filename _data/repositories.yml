@@ -1,14 +1,11 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - yjhuangcd
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - yjhuangcd/rule-guided-music
+  - yjhuangcd/local-lipschitz  
+  - yjhuangcd/FI-ODE  
+  - yjhuangcd/CNNF
+  - yjhuangcd/ultrasound-tagging 

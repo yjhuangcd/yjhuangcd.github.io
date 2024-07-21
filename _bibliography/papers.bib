@@ -1,114 +1,114 @@
 ---
 ---
 
-@string{aps = {American Physical Society,}}
-
-@book{einstein1920relativity,
-  title={Relativity: the Special and General Theory},
-  author={Einstein, Albert},
-  year={1920},
-  publisher={Methuen & Co Ltd},
-  html={relativity.html}
-}
-
-@book{einstein1956investigations,
-  bibtex_show={true},
-  title={Investigations on the Theory of the Brownian Movement},
-  author={Einstein, Albert},
-  year={1956},
-  publisher={Courier Corporation},
-  preview={brownian-motion.gif}
-}
-
-@article{einstein1950meaning,
-  abbr={AJP},
-  bibtex_show={true},
-  title={The meaning of relativity},
-  author={Einstein, Albert and Taub, AH},
-  journal={American Journal of Physics},
-  volume={18},
-  number={6},
-  pages={403--404},
-  year={1950},
-  publisher={American Association of Physics Teachers}
-}
-
-@article{PhysRev.47.777,
-  abbr={PhysRev},
-  title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author={Einstein*†, A. and Podolsky*, B. and Rosen*, N.},
-  abstract={In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal={Phys. Rev.},
-  location={New Jersey},
-  volume={47},
-  issue={10},
-  pages={777--780},
-  numpages={0},
-  year={1935},
-  month={May},
-  publisher=aps,
-  doi={10.1103/PhysRev.47.777},
-  url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html={https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf={example_pdf.pdf},
-  altmetric={248277},
-  dimensions={true},
-  google_scholar_id={qyhmnyLat1gC},
-  video={https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
-  additional_info={. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
-  annotation={* Example use of superscripts<br>† Albert Einstein},
+@inproceedings{huang2024symbolic,
+  title={Symbolic Music Generation with Non-differentiable Rule Guided Diffusion},
+  author={Huang, Yujia and Ghatare, Adishree and Liu, Yuanzhe and Hu, Ziniu and Zhang, Qinsheng and Sastry, Chandramouli S and Gururani, Siddharth and Oore, Sageev and Yue, Yisong},
+  abbr={ICML},
+  abstract={We study the problem of symbolic music generation (e.g., generating piano rolls), with a technical focus on non-differentiable rule guidance. Musical rules are often expressed in symbolic form on note characteristics, such as note density or chord progression, many of which are non-differentiable which pose a challenge when using them for guided diffusion. We propose \oursfull (\ours), a novel guidance method that only requires forward evaluation of rule functions that can work with pre-trained diffusion models in a plug-and-play way, thus achieving training-free guidance for non-differentiable rules for the first time. Additionally, we introduce a latent diffusion architecture for symbolic music generation with high time resolution, which can be composed with SCG in a plug-and-play fashion. Compared to standard strong baselines in symbolic music generation, this framework demonstrates marked advancements in music quality and rule-based controllability, outperforming current state-of-the-art generators in a variety of settings. For detailed demonstrations, code and model checkpoints, please visit our [project website](https://scg-rule-guided-music.github.io).},
+  pdf={https://arxiv.org/abs/2402.14285},
+  year={2024},
+  award={Oral},
+	honor={Oral Presentation [Top 1.5%]},
+  booktitle={International Conference on Machine Learning},
+  code={https://github.com/yjhuangcd/rule-guided-music},
+  website={https://scg-rule-guided-music.github.io},
   selected={true}
 }
 
-@article{einstein1905molekularkinetischen,
-  title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author={Einstein, A.},
-  journal={Annalen der physik},
-  volume={322},
-  number={8},
-  pages={549--560},
-  year={1905},
-  publisher={Wiley Online Library}
+@inproceedings{huang2023fi,
+  title={FI-ODE: Certified and Robust Forward Invariance in Neural ODEs},
+  author={Huang*, Yujia and Rodriguez*, Ivan Dario Jimenez and Zhang, Huan and Shi, Yuanyuan and Yue, Yisong},
+  abbr={Preprint},
+  abstract={Forward invariance is a long-studied property in control theory that is used to certify that a dynamical system stays within some pre-specified set of states for all time, and also admits robustness guarantees (e.g., the certificate holds under perturbations). We propose a general framework for training and provably certifying robust forward invariance in Neural ODEs. We apply this framework to provide certified safety in robust continuous control. To our knowledge, this is the first instance of training Neural ODE policies with such non-vacuous certified guarantees. In addition, we explore the generality of our framework by using it to certify adversarial robustness for image classification..},
+  pdf={https://arxiv.org/abs/2210.16940},
+  year={2023},
+  booktitle={arXiv preprint arXiv:2210.16940},
+  code={https://github.com/yjhuangcd/FI-ODE},
 }
 
-@article{einstein1905movement,
-  abbr={Ann. Phys.},
-  title={Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author={Einstein, A.},
-  journal={Ann. Phys.},
-  volume={17},
-  pages={549--560},
-  year={1905}
+
+@inproceedings{nie2022diffusion,
+  title={Diffusion Models for Adversarial Purification},
+  author={Nie, Weili and Guo, Brandon and Huang, Yujia and Xiao, Chaowei and Vahdat, Arash and Anandkumar, Anima},
+  abbr={ICML},
+  abstract={Adversarial purification refers to a class of defense methods that remove adversarial perturbations using a generative model. These methods do not make assumptions on the form of attack and the classification model, and thus can defend pre-existing classifiers against unseen threats. However, their performance currently falls behind adversarial training methods. In this work, we propose DiffPure that uses diffusion models for adversarial purification: Given an adversarial example, we first diffuse it with a small amount of noise following a forward diffusion process, and then recover the clean image through a reverse generative process. To evaluate our method against strong adaptive attacks in an efficient and scalable way, we propose to use the adjoint method to compute full gradients of the reverse generative process. Extensive experiments on three image datasets including CIFAR-10, ImageNet and CelebA-HQ with three classifier architectures including ResNet, WideResNet and ViT demonstrate that our method achieves the state-of-the-art results, outperforming current adversarial training and adversarial purification methods, often by a large margin.},
+  pdf={https://arxiv.org/abs/2205.07460},
+  year={2022},
+  booktitle={International Conference on Machine Learning},
+  code={https://github.com/NVlabs/DiffPure},
+  selected={true}
 }
 
-@article{einstein1905electrodynamics,
-  title={On the electrodynamics of moving bodies},
-  author={Einstein, A.},
-  year={1905}
+
+@inproceedings{huang2021local,
+  title={Training Certifiably Robust Neural Networks with Efficient Local Lipschitz Bounds},
+  author={Huang, Yujia and Zhang, Huan and Shi, Yuanyuan and Kolter, J Zico and Anandkumar, Anima},
+  abbr={NeurIPS},
+  abstract={Certified robustness is a desirable property for deep neural networks in safetycritical applications, and popular training algorithms can certify robustness of a neural network by computing a global bound on its Lipschitz consant. However, such a bound is often loose: it tends to over-regularize the neural network and degrade its natural accuracy. A tighter Lipschitz bound may provide a better tradeoff between natural and certified accuracy, but is generally hard to compute exactly due to non-convexity of the network. In this work, we propose an efficient and trainable local Lipschitz upper bound by considering the interactions between activation functions (e.g. ReLU) and weight matrices. Specifically, when computing the induced norm of a weight matrix, we eliminate the corresponding rows and columns where the activation function is guaranteed to be a constant in the neighborhood of each given data point, which provides a provably tighter bound than the global Lipschitz constant of the neural network. Our method can be used as a plug-in module to tighten the Lipschitz bound in many certifiable training algorithms. Furthermore, we propose to clip activation functions (e.g., ReLU and MaxMin) with a learnable upper threshold and a sparsity loss to assist the network to achieve an even tighter local Lipschitz bound. Experimentally, we show that our method consistently outperforms state-of-the-art methods in both clean and certified accuracy on MNIST, CIFAR-10 and TinyImageNet datasets with various network architectures.},
+  pdf={https://arxiv.org/abs/2111.01395},
+  year={2021},
+  booktitle={Neural Information Processing Systems},
+  code={https://github.com/yjhuangcd/local-lipschitz},
+  slides={neurips2021_local_lips_slides.pdf},
+  selected={true}
 }
 
-@Article{einstein1905photoelectriceffect,
-  bibtex_show={true},
-  abbr={Ann. Phys.},
-  title="{{\"U}ber einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt}",
-  author={Albert Einstein},
-  abstract={This is the abstract text.},
-  journal={Ann. Phys.},
-  volume={322},
-  number={6},
-  pages={132--148},
-  year={1905},
-  doi={10.1002/andp.19053220607},
-  award={Albert Einstein receveid the **Nobel Prize in Physics** 1921 *for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect*},
-  award_name={Nobel Prize}
+
+@inproceedings{huang2020brain,
+  title={Neural Networks with Recurrent Generative Feedback},
+  author={Huang, Yujia and Gornet, James and Dai, Sihui and Yu, Zhiding and Nguyen, Tan and Tsao, Doris Y. and Anandkumar, Anima},
+  abbr={NeurIPS},
+  year={2020},
+  booktitle={Neural Information Processing Systems},
+  pdf={https://arxiv.org/abs/2007.09200},
+  slides={neurips2020_cnnf_slides.pdf},
+  code={https://github.com/yjhuangcd/CNNF},
+  media={https://imbue.com/podcast/2021-03-18-podcast-episode-7-yujia-huang/},
+  abstract={Neural networks are vulnerable to input perturbations such as additive noise and adversarial attacks. In contrast, human perception is much more robust to such perturbations. The Bayesian brain hypothesis states that human brains use an internal generative model to update the posterior beliefs of the sensory input. This mechanism can be interpreted as a form of self-consistency between the maximum a posteriori (MAP) estimation of the internal generative model and the external environmental. Inspired by this framework, we enforce consistency in neural networks by incorporating generative recurrent feedback. We implement this framework on convolutional neural networks (CNNs). The proposed framework, Convolutional Neural Networks with Feedback (CNN-F), introduces a generative feedback with latent variables into existing CNN architectures, making consistent predictions via alternating MAP inference under a Bayesian framework. CNN-F shows considerably better adversarial robustness over regular feedforward CNNs on standard benchmarks. In addition, With higher V4 and IT neural predictivity, CNN-F produces object representations closer to primate vision than conventional CNNs.},
+  selected={true}
 }
 
-@book{przibram1967letters,
-  bibtex_show={true},
-  title={Letters on wave mechanics},
-  author={Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year={1967},
-  publisher={Vision},
-  preview={wave-mechanics.gif},
-  abbr={Vision}
+@article{huang2020uot,
+author = {Huang, Yujia and Cua, Michelle and Brake, Joshua and Liu, Yan and Yang, Changhuei},
+title = {Investigating ultrasound–light interaction in scattering media},
+abbr = {JBO},
+journal = {Journal of Biomedical Optics},
+publisher = {SPIE},
+year = {2020},
+pdf = {https://doi.org/10.1117/1.JBO.25.2.025002},
+poster = {GRC_poster.pdf},
+code={https://github.com/yjhuangcd/ultrasound-tagging},
+abstract = {Significance: Ultrasound-assisted optical imaging techniques, such as ultrasound-modulated optical tomography, allow for imaging deep inside scattering media. In these modalities, a frac- tion of the photons passing through the ultrasound beam is modulated. The efficiency by which the photons are converted is typically referred to as the ultrasound modulation’s “tagging efficiency.” Interestingly, this efficiency has been defined in varied and discrepant fashion throughout the scientific literature.
+Aim: The aim of this study is the ultrasound tagging efficiency in a manner consistent with its definition and experimentally verify the contributive (or noncontributive) relationship between the mechanisms involved in the ultrasound optical modulation process.
+Approach: We adopt a general description of the tagging efficiency as the fraction of photons traversing an ultrasound beam that is frequency shifted (inclusion of all frequency-shifted com- ponents). We then systematically studied the impact of ultrasound pressure and frequency on the tagging efficiency through a balanced detection measurement system that measured the power of each order of the ultrasound tagged light, as well as the power of the unmodulated light component.
+Results: Through our experiments, we showed that the tagging efficiency can reach 70% in a scattering phantom with a scattering anisotropy of 0.9 and a scattering coefficient of 4 mm−1 for a 1-MHz ultrasound with a relatively low (and biomedically acceptable) peak pressure of 0.47 MPa. Furthermore, we experimentally confirmed that the two ultrasound-induced light modulation mechanisms, particle displacement and refractive index change, act in opposition to each other.
+Conclusion: Tagging efficiency was quantified via simulation and experiments. These findings reveal avenues of investigation that may help improve ultrasound-assisted optical imaging techniques.}
+}
+
+
+@article{ruan2020scatter,
+  title={Fluorescence imaging through dynamic scattering media with speckle-encoded ultrasound-modulated light correlation},
+  author={Ruan, Haowen and Liu, Yan and Xu, Jian and Huang, Yujia and Yang, Changhuei},
+  abbr = {Nature Photonics},
+  journal = {Nature Photonics},
+  publisher={Nature Publishing Group},
+  year={2020},
+  pdf={https://www.nature.com/articles/s41566-020-0630-0},
+  abstract={Fluorescence imaging is indispensable to biomedical research, and yet it remains challenging to image through dynamic scattering samples. Techniques that combine ultrasound and light as exemplified by ultrasound-assisted wavefront shaping have enabled fluorescence imaging through scattering media. However, the translation of these techniques into in vivo applications has been hindered by the lack of high-speed solutions to counter the fast speckle decorrelation of dynamic tissue. Here, we report an ultrasound-enabled optical imaging method that instead leverages the dynamic nature to perform imaging. The method utilizes the correlation between the dynamic speckle-encoded fluorescence and ultrasound-modulated light signal that originate from the same location within a sample. We image fluorescent targets with an improved resolution of ≤75 µm (versus a resolution of 1.3 mm with direct optical imaging) within a scattering medium with 17 ms decorrelation time. This new imaging modality paves the way for fluorescence imaging in highly scattering tissue in vivo.}
+}
+
+
+@article{chen2018multi,
+  title={Multi-color live-cell super-resolution volume imaging with multi-angle interference microscopy},
+  author={Chen, Youhua and Liu, Wenjie and Zhang, Zhimin and Zheng, Cheng and Huang, Yujia and Cao, Ruizhi and Zhu, Dazhao and Xu, Liang and Zhang, Meng and Zhang, Yu-Hui and others},
+  journal={Nature communications},
+  abbr={Nature Comm.},
+  volume={9},
+  number={1},
+  pages={4818},
+  year={2018},
+  pdf={https://www.nature.com/articles/s41467-018-07244-4},
+  publisher={Nature Publishing Group},
+  abstract={Imaging and tracking of near-surface three-dimensional volumetric nanoscale dynamic processes of live cells remains a challenging problem. In this paper, we propose a multi-color live-cell near-surface-volume super-resolution microscopy method that combines total internal reflection fluorescence structured illumination microscopy with multi-angle evanescent light illumination. We demonstrate that our approach of multi-angle interference microscopy is perfectly adapted to studying subcellular dynamics of mitochondria and microtubule architectures during cell migration.}
 }
