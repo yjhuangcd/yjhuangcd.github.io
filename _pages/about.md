@@ -18,6 +18,6 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I received Ph.D. in Electrical Engineering from California Institute of Technology, where I’m fortunate to be advised by Prof [Yisong Yue](http://www.yisongyue.com). 
+I received Ph.D. in Electrical Engineering from California Institute of Technology, where I’m fortunate to be advised by Prof. [Yisong Yue](http://www.yisongyue.com). 
 
 I am interested in building powerful and controllable generative models. My previous work has used control theoretic tools to shape the inference dynamics of various deep learning architectures such as diffusion models to improve their controllability and reliability.
