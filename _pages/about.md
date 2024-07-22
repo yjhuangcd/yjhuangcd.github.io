@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-# subtitle: PhD in EE from Caltech.
+subtitle: yjhuang [at] caltech (dot) edu.
 
 profile:
   align: right
