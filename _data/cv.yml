@@ -23,7 +23,6 @@
       year: 2024 - now
       description:
         - Designs and implements feature engineering pipelines and deep learning models to identify predictive signals in large-scale, noisy financial time-series data.
-        - Designs and implements rigorous backtesting and statistical analysis pipelines to validate model performance in a high-stakes, fast-paced research environment.
 
     - title: Research Intern (part-time)
       institution: NVIDIA Research, Santa Clara, CA
