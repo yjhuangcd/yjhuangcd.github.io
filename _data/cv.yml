@@ -7,6 +7,7 @@
       description:
         - Advised by Prof. <a href="http://www.yisongyue.com">Yisong Yue</a>.
         - Thesis <a href="https://thesis.library.caltech.edu/16314/">Understanding and Improving Reliability of Inference Dynamics in Deep Neural Networks</a>.
+        - Research Interest: Post-training, Test-time Compute & Reasoning, LLMs, Diffusion Models, Controllable Generation
     - title: B.E. in Opto-electronics Information Science and Engineering
       institution: Zhejiang University, Hangzhou, China
       year: 2017
@@ -14,18 +15,22 @@
         - Member of Advanced Honors Class of Engineering (ACEE), Chu Kochen Honors College
         - Chu Kochen Scholarship (highest honor for Zhejiang University undergrads, 12/5400).
 
-- title: Experience
+- title: Work Experience
   type: time_table
   contents:
-    - title: Quantitative Researcher Intern
-      institution: Five Rings LLC, New York City, NY
-      year: summer 2022
+    - title: Quantitative Researcher
+      institution: Citadel Securities, Miami, FL
+      year: 2024 - now
+      description:
+        - Designs and implements feature engineering pipelines and deep learning models to identify predictive signals in large-scale, noisy financial time-series data.
+        - Designs and implements rigorous backtesting and statistical analysis pipelines to validate model performance in a high-stakes, fast-paced research environment.
 
     - title: Research Intern (part-time)
       institution: NVIDIA Research, Santa Clara, CA
       year: 2020 - 2022
       description:
         - Hosted by <a href="https://chrisding.github.io"> Zhiding Yu</a> and <a href="https://weilinie.github.io"> Weili Nie</a>.
+        - Invented neural networks with recurrent generative feedback to improve robustness and worked on diffusion models.
 
 - title: Honors and Awards
   type: time_table

@@ -18,6 +18,8 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I received Ph.D. in Electrical Engineering from California Institute of Technology, where I’m fortunate to be advised by Prof. [Yisong Yue](http://www.yisongyue.com). 
+I am a Machine Learning Researcher with a Ph.D. from **Caltech** (advised by Prof. [Yisong Yue](http://www.yisongyue.com)) and currently a Quantitative Researcher at **Citadel Securities**.
 
-I am interested in building powerful and controllable generative models. My previous work has used control theoretic tools to shape the inference dynamics of various deep learning architectures such as diffusion models to improve their controllability and reliability.
+My research philosophy centers on **Inference Dynamics**—moving beyond static, one-pass predictions to treat inference as a dynamic, controllable process. During my Ph.D., I laid the theoretical groundwork for this vision by establishing robustness guarantees for dynamic systems (e.g., via **Neural ODEs** and recurrent feedback).
+
+Currently, I apply this lens to **Generative AI** to prototype **System 2 reasoning**. My recent work pioneers **training-free guidance methods** for diffusion models, framing generation as a **test-time optimization** problem. By allocating **inference-time compute** to search and verify outputs against complex rules, my research aims to build AI systems that are not just powerful, but reliable and steerable.
